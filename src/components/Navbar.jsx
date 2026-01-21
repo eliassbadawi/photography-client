@@ -8,7 +8,6 @@ const Navbar = ({ user, onLogout }) => (
       <Link to="/" className="nav-link">Home</Link>
       <Link to="/sessions" className="nav-link">Sessions</Link>
 
-      {/* 1. Only show Dashboard if user is logged in */}
       {user && (
         <Link 
           to={user.role === "admin" ? "/AdminDashboard" : "/Dashboard"} 
@@ -20,7 +19,6 @@ const Navbar = ({ user, onLogout }) => (
     </div>
 
     <div className="nav-right">
-      {/* 2. Toggle between Login button and Logout button */}
       {!user ? (
         <Link to="/login" className="login-btn">Login</Link>
       ) : (
