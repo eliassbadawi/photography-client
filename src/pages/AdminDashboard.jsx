@@ -8,7 +8,6 @@ const AdminDashboard = ({ user }) => {
   const [allRequests, setAllRequests] = useState([]);
   const [editingId, setEditingId] = useState(null);
 
-  // Bind edit form data separately to allow editing
   const [editFormData, setEditFormData] = useState({
     name: '',
     price: '',
@@ -17,7 +16,6 @@ const AdminDashboard = ({ user }) => {
     image_url: ''
   });
 
-  // Bind new session form
   const [newSession, setNewSession] = useState({
     name: '',
     price: '',
@@ -26,7 +24,6 @@ const AdminDashboard = ({ user }) => {
     image_url: ''
   });
 
-  // Fetch sessions and booking requests
   const fetchInitialData = () => {
     axios.get("http://localhost:5000/api/sessions")
       .then(res => setSessions(res.data))
@@ -41,37 +38,30 @@ const AdminDashboard = ({ user }) => {
     fetchInitialData();
   }, []);
 
-  // ----------------------
-  // UPDATE SESSION
-  // ----------------------
+
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      // Send PUT request to backend with admin role in headers
       await axios.put(
         `http://localhost:5000/api/sessions/${editingId}`,
         {
           ...editFormData,
-          price: Number(editFormData.price) // Ensure price is numeric
+          price: Number(editFormData.price) 
         },
         { headers: { "x-role": user.role } }
       );
 
-      setEditingId(null); // Exit edit mode
-      fetchInitialData();  // Refresh sessions
+      setEditingId(null); 
+      fetchInitialData();  
     } catch (err) {
       console.error("Update Error:", err.response?.data || err.message);
       alert("Update failed. Check console for details.");
     }
   };
 
-  // ----------------------
-  // CREATE SESSION
-  // ----------------------
   const handleCreate = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!newSession.name || !newSession.price) {
       alert("Name and Price are required");
       return;
@@ -82,23 +72,21 @@ const AdminDashboard = ({ user }) => {
         "http://localhost:5000/api/sessions",
         {
           ...newSession,
-          price: Number(newSession.price) // Convert price to number
+          price: Number(newSession.price) 
         },
         { headers: { "x-role": user.role } }
       );
 
-      // Clear form after successful creation
+
       setNewSession({ name: '', price: '', description: '', duration: '', image_url: '' });
-      fetchInitialData(); // Refresh sessions
+      fetchInitialData(); 
     } catch (err) {
       console.error("Create Error:", err.response?.data || err.message);
       alert("Create failed. Check console for details.");
     }
   };
 
-  // ----------------------
-  // DELETE SESSION
-  // ----------------------
+
   const handleDeleteSession = async (id) => {
     if (!window.confirm("Are you sure you want to delete this session?")) return;
 
@@ -107,16 +95,14 @@ const AdminDashboard = ({ user }) => {
         `http://localhost:5000/api/sessions/${id}`,
         { headers: { "x-role": user.role } }
       );
-      fetchInitialData(); // Refresh sessions
+      fetchInitialData(); 
     } catch (err) {
       console.error("Delete Error:", err.response?.data || err.message);
       alert("Delete failed. Check console for details.");
     }
   };
 
-  // ----------------------
-  // UPDATE BOOKING STATUS
-  // ----------------------
+
   const updateBookingStatus = async (id, status) => {
     try {
       await axios.put(
@@ -124,7 +110,7 @@ const AdminDashboard = ({ user }) => {
         { status },
         { headers: { "x-role": user.role } }
       );
-      fetchInitialData(); // Refresh bookings
+      fetchInitialData(); 
     } catch (err) {
       console.error("Booking Status Update Error:", err.response?.data || err.message);
       alert("Status update failed. Check console for details.");
@@ -138,9 +124,7 @@ const AdminDashboard = ({ user }) => {
         <p>Logged in as: {user?.email}</p>
       </header>
 
-      {/* ---------------------- */}
       {/* TABS */}
-      {/* ---------------------- */}
       <nav className="dash-tabs">
         {['Booking Requests', 'Sessions'].map(tab => (
           <button
@@ -155,9 +139,7 @@ const AdminDashboard = ({ user }) => {
 
       <section className="dash-section">
 
-        {/* ---------------------- */}
         {/* BOOKINGS */}
-        {/* ---------------------- */}
         {activeTab === 'Booking Requests' && (
           <div className="list">
             <h2>Client Requests</h2>
@@ -193,9 +175,7 @@ const AdminDashboard = ({ user }) => {
           </div>
         )}
 
-        {/* ---------------------- */}
         {/* SESSIONS */}
-        {/* ---------------------- */}
         {activeTab === 'Sessions' && (
           <div className="sessions-manager">
             <h2>Add New Session</h2>
@@ -263,7 +243,7 @@ const AdminDashboard = ({ user }) => {
                         className="dash-btn outline"
                         onClick={() => {
                           setEditingId(s.id);
-                          setEditFormData(s); // prefill form for editing
+                          setEditFormData(s); 
                         }}
                       >
                         Edit
