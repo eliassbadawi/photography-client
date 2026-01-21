@@ -6,7 +6,7 @@ const Sessions = () => {
   const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/sessions")
+    fetch(`${import.meta.env.VITE_API_URL}/api/sessions`)
       .then(res => res.json())
       .then(data => setSessions(data));
   }, []);

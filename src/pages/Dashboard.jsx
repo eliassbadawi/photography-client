@@ -13,7 +13,7 @@ const Dashboard = ({ user }) => {
       .catch((err) => console.error("Weather failed:", err));
 
     //Fetch Bookings from Backend 
-    axios.get(`http://localhost:5000/api/bookings/user/${user.email}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/api/bookings/user/${user.email}`)
       .then(res => {
         setMyBookings(res.data);
       })
@@ -49,7 +49,7 @@ const Dashboard = ({ user }) => {
             <div key={booking.id} className="booking-item">
               <div className="item-info">
                 <strong>{booking.name}</strong>
-                {/* Note: booking_date comes from your SQL CURRENT_DATE */}
+                {/* Note: booking_date comes from the SQL CURRENT_DATE */}
                 <span>{new Date(booking.booking_date).toLocaleDateString()}</span>
               </div>
               <div className="item-actions">

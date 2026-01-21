@@ -28,11 +28,11 @@ const AdminDashboard = ({ user }) => {
 
   // Fetch sessions and booking requests
   const fetchInitialData = () => {
-    axios.get("http://localhost:5000/api/sessions")
+    axios.get(`${import.meta.env.VITE_API_URL}/api/sessions`)
       .then(res => setSessions(res.data))
       .catch(err => console.error("Fetch sessions failed:", err));
 
-    axios.get("http://localhost:5000/api/bookings/all")
+    axios.get(`${import.meta.env.VITE_API_URL}/api/bookings/all`)
       .then(res => setAllRequests(res.data))
       .catch(err => console.error("Fetch bookings failed:", err));
   };
@@ -49,7 +49,7 @@ const AdminDashboard = ({ user }) => {
     try {
       // Send PUT request to backend with admin role in headers
       await axios.put(
-        `http://localhost:5000/api/sessions/${editingId}`,
+        `${import.meta.env.VITE_API_URL}/api/sessions/${editingId}`,
         {
           ...editFormData,
           price: Number(editFormData.price) // Ensure price is numeric
@@ -79,7 +79,7 @@ const AdminDashboard = ({ user }) => {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/sessions",
+        `${import.meta.env.VITE_API_URL}/api/sessions`,
         {
           ...newSession,
           price: Number(newSession.price) // Convert price to number
@@ -104,7 +104,7 @@ const AdminDashboard = ({ user }) => {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/sessions/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/sessions/${id}`,
         { headers: { "x-role": user.role } }
       );
       fetchInitialData(); // Refresh sessions
@@ -120,7 +120,7 @@ const AdminDashboard = ({ user }) => {
   const updateBookingStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/bookings/${id}/status`,
+        `${import.meta.env.VITE_API_URL}/api/bookings/${id}/status`,
         { status },
         { headers: { "x-role": user.role } }
       );

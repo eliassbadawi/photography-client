@@ -11,7 +11,7 @@ const BookingPage = ({ user }) => {
   const timeSlots = ['09:00', '10:00', '11:00', '13:00', '14:30', '16:00'];
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/sessions")
+    axios.get(`${import.meta.env.VITE_API_URL}/api/sessions`)
       .then(res => {
         const found = res.data.find(s => s.id === parseInt(sessionId));
         setSelectedSession(found);
@@ -24,7 +24,7 @@ const BookingPage = ({ user }) => {
     if (!bookingData.date || !bookingData.time) return alert("Select date and time");
 
     try {
-      await axios.post("http://localhost:5000/api/bookings", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings`, {
         email: user.email,
         session_id: sessionId,
         date: bookingData.date,

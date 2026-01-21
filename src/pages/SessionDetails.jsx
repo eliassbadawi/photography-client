@@ -9,7 +9,7 @@ const SessionDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/sessions")
+    axios.get(`${import.meta.env.VITE_API_URL}/api/sessions`)
       .then(res => {
         const found = res.data.find(s => s.id === parseInt(sessionId));
         setSession(found);
