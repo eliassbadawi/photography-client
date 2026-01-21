@@ -49,7 +49,7 @@ const Dashboard = ({ user }) => {
             <div key={booking.id} className="booking-item">
               <div className="item-info">
                 <strong>{booking.name}</strong>
-                {/* Note: booking_date comes from your SQL CURRENT_DATE */}
+                {/* Note: booking_date comes from the SQL CURRENT_DATE */}
                 <span>{new Date(booking.booking_date).toLocaleDateString()}</span>
               </div>
               <div className="item-actions">
