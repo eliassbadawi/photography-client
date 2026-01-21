@@ -1,0 +1,95 @@
+nav {
+  display: flex;
+  justify-content: space-between; /* Pushes the left group and right button apart */
+  align-items: center;
+  padding: 1.2rem 5%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 3rem; /* Spacing between "PhotoBook" and the links */
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #0f172a;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #0f172a;
+}
+
+.login-btn {
+  background-color: #0f172a;
+  color: #ffffff !important;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+/* Keep your existing CSS and add/update these: */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.login-btn, .logout-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.login-btn {
+  background-color: #0f172a;
+  color: #ffffff !important;
+}
+
+.logout-btn {
+  background-color: #ef4444; /* Red color for logout */
+  color: white;
+  border: none;
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+}

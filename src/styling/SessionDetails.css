@@ -1,0 +1,176 @@
+.details-page {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding: 20px 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav-area {
+  padding: 20px 0;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #0f172a;
+}
+
+/* Split Layout */
+.container {
+  display: flex;
+  gap: 50px;
+  flex: 1;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.details-image-section {
+  flex: 1.2; /* Image side is slightly wider */
+  position: sticky;
+  top: 40px;
+  height: calc(100vh - 150px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.details-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details-info-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card Styling */
+.details-card {
+  background: white;
+  width: 100%;
+  max-width: 550px;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+}
+
+.details-card h1 {
+  font-size: 2.25rem;
+  color: #0f172a;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+.main-desc {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.details-meta {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.meta-item label {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.meta-item p {
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.included-section h3 {
+  font-size: 1.1rem;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.check-list li {
+  margin-bottom: 14px;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.check-mark {
+  color: #0f172a;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.book-session-btn {
+  display: block;
+  background-color: #0f172a;
+  color: white !important;
+  text-align: center;
+  padding: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  transition: transform 0.2s;
+}
+
+.book-session-btn:hover {
+  transform: translateY(-2px);
+}
+
+.policy-text {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Tablet/Mobile View */
+@media (max-width: 1024px) {
+  .split-layout-container {
+    flex-direction: column;
+  }
+  .details-image-section {
+    position: relative;
+    top: 0;
+    height: 400px;
+    width: 100%;
+  }
+}

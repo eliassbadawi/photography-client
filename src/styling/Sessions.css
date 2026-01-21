@@ -1,0 +1,96 @@
+.sessions-page {
+  padding: 80px 5%;
+  background-color: #ffffff;
+}
+
+.sessions-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sessions-header h1 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.sessions-header p {
+  color: #64748b;
+}
+
+.sessions-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+}
+
+.session-card {
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+.session-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.card-top h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.card-top p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.Session-info {
+  display: flex;
+  gap: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #0f172a;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  flex-grow: 1;
+}
+
+.features-list li {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.view-btn, .book-now-btn {
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.view-btn {
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.book-now-btn {
+  background-color: #0f172a;
+  color: white !important;
+}   

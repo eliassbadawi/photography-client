@@ -1,0 +1,71 @@
+.booking-wrapper {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: sans-serif;
+}
+
+.booking-container {
+  display: grid;
+  grid-template-columns: 1fr 350px; /* Left wide, right narrow */
+  gap: 30px;
+}
+
+.booking-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+/* Styling the Native Date Input */
+.native-date-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Time Button Grid */
+.time-button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.time-choice-btn {
+  padding: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.time-choice-btn.selected {
+  background: #000;
+  color: white;
+  border-color: #000;
+}
+
+/* Summary Sidebar */
+.summary-box {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 30px;
+  border-radius: 12px;
+  position: sticky;
+  top: 20px;
+}
+
+.confirm-booking-btn {
+  width: 100%;
+  padding: 15px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
