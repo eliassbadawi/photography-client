@@ -86,7 +86,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 4. Final CTA Section */}
+      {/* 4. Final Section */}
       <div className="section-container cta-block">
         <div className="section-header">
           <h2>Get Started Today</h2>

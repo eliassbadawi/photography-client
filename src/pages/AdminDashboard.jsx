@@ -41,9 +41,7 @@ const AdminDashboard = ({ user }) => {
     fetchInitialData();
   }, []);
 
-  // ----------------------
-  // UPDATE SESSION
-  // ----------------------
+
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -65,9 +63,7 @@ const AdminDashboard = ({ user }) => {
     }
   };
 
-  // ----------------------
-  // CREATE SESSION
-  // ----------------------
+
   const handleCreate = async (e) => {
     e.preventDefault();
 
@@ -89,16 +85,14 @@ const AdminDashboard = ({ user }) => {
 
       // Clear form after successful creation
       setNewSession({ name: '', price: '', description: '', duration: '', image_url: '' });
-      fetchInitialData(); // Refresh sessions
+      fetchInitialData(); 
     } catch (err) {
       console.error("Create Error:", err.response?.data || err.message);
       alert("Create failed. Check console for details.");
     }
   };
 
-  // ----------------------
-  // DELETE SESSION
-  // ----------------------
+
   const handleDeleteSession = async (id) => {
     if (!window.confirm("Are you sure you want to delete this session?")) return;
 
@@ -107,16 +101,14 @@ const AdminDashboard = ({ user }) => {
         `${import.meta.env.VITE_API_URL}/api/sessions/${id}`,
         { headers: { "x-role": user.role } }
       );
-      fetchInitialData(); // Refresh sessions
+      fetchInitialData(); 
     } catch (err) {
       console.error("Delete Error:", err.response?.data || err.message);
       alert("Delete failed. Check console for details.");
     }
   };
 
-  // ----------------------
-  // UPDATE BOOKING STATUS
-  // ----------------------
+
   const updateBookingStatus = async (id, status) => {
     try {
       await axios.put(
@@ -124,7 +116,7 @@ const AdminDashboard = ({ user }) => {
         { status },
         { headers: { "x-role": user.role } }
       );
-      fetchInitialData(); // Refresh bookings
+      fetchInitialData(); 
     } catch (err) {
       console.error("Booking Status Update Error:", err.response?.data || err.message);
       alert("Status update failed. Check console for details.");
@@ -138,9 +130,7 @@ const AdminDashboard = ({ user }) => {
         <p>Logged in as: {user?.email}</p>
       </header>
 
-      {/* ---------------------- */}
       {/* TABS */}
-      {/* ---------------------- */}
       <nav className="dash-tabs">
         {['Booking Requests', 'Sessions'].map(tab => (
           <button
@@ -155,9 +145,7 @@ const AdminDashboard = ({ user }) => {
 
       <section className="dash-section">
 
-        {/* ---------------------- */}
         {/* BOOKINGS */}
-        {/* ---------------------- */}
         {activeTab === 'Booking Requests' && (
           <div className="list">
             <h2>Client Requests</h2>
@@ -193,9 +181,7 @@ const AdminDashboard = ({ user }) => {
           </div>
         )}
 
-        {/* ---------------------- */}
         {/* SESSIONS */}
-        {/* ---------------------- */}
         {activeTab === 'Sessions' && (
           <div className="sessions-manager">
             <h2>Add New Session</h2>

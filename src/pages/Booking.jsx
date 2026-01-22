@@ -31,7 +31,7 @@ const BookingPage = ({ user }) => {
         time: bookingData.time
       });
       alert("Booking confirmed!");
-      navigate("/"); // Landing home as requested
+      navigate("/"); 
     } catch { alert("Booking failed"); }
   };
 
@@ -57,7 +57,7 @@ const BookingPage = ({ user }) => {
           <div className="summary-box">
             <h2>Booking Summary</h2>
             <div className="summary-line"><span>Package:</span><strong>{selectedSession?.name || 'Loading...'}</strong></div>
-            {/* PRICE DISPLAY RE-ADDED BELOW */}
+
             <div className="summary-line"><span>Price:</span><strong className="price-tag">${selectedSession?.price || '0'}</strong></div>
             <div className="summary-line"><span>Date:</span><strong>{bookingData.date || 'Not selected'}</strong></div>
             <div className="summary-line"><span>Time:</span><strong>{bookingData.time || 'Not selected'}</strong></div>
